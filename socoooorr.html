@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Avaliação Funcional e Manejos Comportamentais - TEA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="system-header">
+            <h1>Sistema de Avaliação Funcional e Manejos Comportamentais</h1>
+            <p>Baseado em evidências científicas para crianças e adolescentes com TEA</p>
+            <small>Referências: FAI (O'Neill et al.), QABF (Matson & Vollmer), FAST (Iwata & DeLeon)</small>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <p style="font-size: 0.9rem; color: #c8e6c9;">
+                    <strong>Idealizado por:</strong> Daniel Barbosa - Psicólogo e Analista do Comportamento
+                </p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('entrevista')">Entrevista</button>
+            <button class="tab" onclick="showTab('avaliacao')">Avaliação Funcional</button>
+            <button class="tab" onclick="showTab('coleta')">Coleta de Dados</button>
+            <button class="tab" onclick="showTab('recomendacoes')">Recomendações</button>
+            <button class="tab" onclick="showTab('relatorio')">Relatório</button>
+        </div>
+
+        <!-- ABA ENTREVISTA -->
+        <div id="entrevista" class="content">
+            <!-- SEÇÃO DO TERAPEUTA RESPONSÁVEL -->
+            <div class="section">
+                <h3>Dados do Terapeuta Responsável</h3>
+                <div class="terapeuta-section">
+                    <h4>Informações Profissionais</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="terapeutaNome">Nome Completo do Terapeuta: *</label>
+                            <input type="text" id="terapeutaNome" placeholder="Digite o nome completo do profissional">
+                        </div>
+                        <div class="form-group">
+                            <label for="terapeutaProfissao">Profissão: *</label>
+                            <select id="terapeutaProfissao">
+                                <option value="">Selecione a profissão</option>
+                                <option value="psicologo">Psicólogo(a)</option>
+                                <option value="terapeuta_ocupacional">Terapeuta Ocupacional</option>
+                                <option value="fonoaudiologo">Fonoaudiólogo(a)</option>
+                                <option value="pedagogo">Pedagogo(a)</option>
+                                <option value="psicopedagogo">Psicopedagogo(a)</option>
+                                <option value="neuropsicologo">Neuropsicólogo(a)</option>
+                                <option value="analista_comportamento">Analista do Comportamento</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="terapeutaEspecializacao">Especialização/Área de Atuação:</label>
+                            <input type="text" id="terapeutaEspecializacao" placeholder="Ex: ABA, TEA, Análise do Comportamento">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="terapeutaRegistro">Número do Registro Profissional:</label>
+                            <input type="text" id="terapeutaRegistro" placeholder="Ex: CRP 06/123456, CREFITO-3 123456">
+                        </div>
+                        <div class="form-group">
+                            <label for="terapeutaInstituicao">Instituição/Clínica:</label>
+                            <input type="text" id="terapeutaInstituicao" placeholder="Nome da instituição onde atua">
+                        </div>
+                        <div class="form-group">
+                            <label for="terapeutaContato">Telefone/E-mail para Contato:</label>
+                            <input type="text" id="terapeutaContato" placeholder="(11) 99999-9999 ou email@exemplo.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="terapeutaExperiencia">Tempo de Experiência com TEA:</label>
+                            <select id="terapeutaExperiencia">
+                                <option value="">Selecione</option>
+                                <option value="menos_1_ano">Menos de 1 ano</option>
+                                <option value="1_3_anos">1 a 3 anos</option>
+                                <option value="3_5_anos">3 a 5 anos</option>
+                                <option value="5_10_anos">5 a 10 anos</option>
+                                <option value="mais_10_anos">Mais de 10 anos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="terapeutaFormacao">Formação Específica em ABA/TEA:</label>
+                            <select id="terapeutaFormacao">
+                                <option value="">Selecione</option>
+                                <option value="especializacao">Especialização</option>
+                                <option value="pos_graduacao">Pós-graduação</option>
+                                <option value="mestrado">Mestrado</option>
+                                <option value="doutorado">Doutorado</option>
+                                <option value="cursos_livres">Cursos livres</option>
+                                <option value="certificacao_internacional">Certificação Internacional</option>
+                                <option value="nenhuma">Nenhuma formação específica</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="terapeutaSupervisao">Recebe Supervisão:</label>
+                            <select id="terapeutaSupervisao">
+                                <option value="">Selecione</option>
+                                <option value="sim_semanal">Sim - Semanal</option>
+                                <option value="sim_quinzenal">Sim - Quinzenal</option>
+                                <option value="sim_mensal">Sim - Mensal</option>
+                                <option value="sim_eventual">Sim - Eventual</option>
+                                <option value="nao">Não recebe supervisão</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="terapeutaObservacoes">Observações Adicionais do Terapeuta:</label>
+                        <textarea id="terapeutaObservacoes" rows="3" placeholder="Informações adicionais relevantes sobre o profissional ou contexto da avaliação"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Informações Demográficas</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome da Criança:</label>
+                        <input type="text" id="nome" placeholder="Digite o nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="idade">Idade:</label>
+                        <input type="number" id="idade" min="3" max="18" placeholder="Anos">
+                    </div>
+                    <div class="form-group">
+                        <label for="nivelTEA">Nível de Suporte TEA:</label>
+                        <select id="nivelTEA">
+                            <option value="">Selecione</option>
+                            <option value="1">Nível 1 - Necessita de apoio</option>
+                            <option value="2">Nível 2 - Necessita de apoio substancial</option>
+                            <option value="3">Nível 3 - Necessita de apoio muito substancial</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="medicacao">Medicações Atuais:</label>
+                        <input type="text" id="medicacao" placeholder="Liste as medicações ou 'Nenhuma'">
+                    </div>
+                    <div class="form-group">
+                        <label for="informante">Informante:</label>
+                        <select id="informante">
+                            <option value="">Selecione</option>
+                            <option value="mae">Mãe</option>
+                            <option value="pai">Pai</option>
+                            <option value="cuidador">Cuidador</option>
+                            <option value="professor">Professor</option>
+                            <option value="terapeuta">Terapeuta</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Descrição do Comportamento-Alvo</h3>
+                <div class="form-group">
+                    <label for="comportamento">Descrição Objetiva do Comportamento:</label>
+                    <textarea id="comportamento" rows="3" placeholder="Descreva o comportamento de forma objetiva e observável"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="frequencia">Frequência:</label>
+                        <select id="frequencia">
+                            <option value="">Selecione</option>
+                            <option value="varias_hora">Várias vezes por hora</option>
+                            <option value="varias_dia">Várias vezes por dia</option>
+                            <option value="diariamente">Diariamente</option>
+                            <option value="algumas_semana">Algumas vezes por semana</option>
+                            <option value="raramente">Raramente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="duracao">Duração Típica:</label>
+                        <select id="duracao">
+                            <option value="">Selecione</option>
+                            <option value="segundos">Segundos</option>
+                            <option value="1-5min">1-5 minutos</option>
+                            <option value="5-30min">5-30 minutos</option>
+                            <option value="mais30min">Mais de 30 minutos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="intensidade">Intensidade:</label>
+                        <select id="intensidade">
+                            <option value="">Selecione</option>
+                            <option value="leve">Leve</option>
+                            <option value="moderada">Moderada</option>
+                            <option value="severa">Severa</option>
+                            <option value="extrema">Extrema</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="riscoSeguranca">Risco de Segurança:</label>
+                        <select id="riscoSeguranca">
+                            <option value="">Selecione</option>
+                            <option value="nenhum">Nenhum</option>
+                            <option value="baixo">Baixo</option>
+                            <option value="moderado">Moderado</option>
+                            <option value="alto">Alto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="impactoAprendizado">Interfere no Aprendizado:</label>
+                        <select id="impactoAprendizado">
+                            <option value="">Selecione</option>
+                            <option value="nao">Não</option>
+                            <option value="as_vezes">Às vezes</option>
+                            <option value="frequentemente">Frequentemente</option>
+                            <option value="sempre">Sempre</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Perfil Comunicativo e Sensorial</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nivelComunicacao">Nível de Comunicação:</label>
+                        <select id="nivelComunicacao">
+                            <option value="">Selecione</option>
+                            <option value="nao_verbal">Não-verbal</option>
+                            <option value="palavras_isoladas">Palavras isoladas</option>
+                            <option value="frases_simples">Frases simples</option>
+                            <option value="conversacao">Conversação</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="usoCAA">Uso de CAA:</label>
+                        <select id="usoCAA">
+                            <option value="">Selecione</option>
+                            <option value="nao">Não usa</option>
+                            <option value="pecs">PECS</option>
+                            <option value="gestos">Gestos</option>
+                            <option value="aplicativo">Aplicativo</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="hipersensibilidade">Hipersensibilidades:</label>
+                        <select id="hipersensibilidade">
+                            <option value="">Selecione</option>
+                            <option value="nenhuma">Nenhuma</option>
+                            <option value="auditiva">Auditiva</option>
+                            <option value="visual">Visual</option>
+                            <option value="tatil">Tátil</option>
+                            <option value="multiplas">Múltiplas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="buscaSensorial">Busca Sensorial:</label>
+                        <select id="buscaSensorial">
+                            <option value="">Selecione</option>
+                            <option value="nenhuma">Nenhuma</option>
+                            <option value="proprioceptivo">Proprioceptivo</option>
+                            <option value="vestibular">Vestibular</option>
+                            <option value="visual">Visual</option>
+                            <option value="multiplas">Múltiplas</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Histórico de Intervenções</h3>
+                <div class="form-group">
+                    <label for="tentativasAnteriores">Estratégias Já Utilizadas:</label>
+                    <textarea id="tentativasAnteriores" rows="3" placeholder="Descreva as estratégias já tentadas e seus resultados"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reforçadores">Itens/Atividades Preferidas:</label>
+                    <textarea id="reforçadores" rows="2" placeholder="Liste os principais reforçadores conhecidos"></textarea>
+                </div>
+            </div>
+
+            <div class="export-section">
+                <button class="btn" onclick="showTab('avaliacao')">Próximo: Avaliação Funcional →</button>
+            </div>
+        </div>
+
+        <!-- ABA AVALIAÇÃO FUNCIONAL -->
+        <div id="avaliacao" class="content hidden">
+            <div class="section">
+                <h3>Análise Funcional do Comportamento</h3>
+                <p><strong>Instruções:</strong> Para cada pergunta, marque a frequência que melhor descreve o comportamento da criança.</p>
+                <div class="alert alert-warning">
+                    <strong>Escala:</strong> 0=Nunca | 1=Raramente | 2=Frequentemente | 3=Sempre
+                </div>
+            </div>
+
+            <!-- FUNÇÃO ATENÇÃO -->
+            <div class="function-assessment atencao">
+                <h4>FUNÇÃO: ATENÇÃO</h4>
+                
+                <div class="rating-scale">
+                    <label>1. O comportamento ocorre mais quando a criança está sendo ignorada?</label>
+                    <div>
+                        <input type="radio" name="atencao1" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="atencao1" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="atencao1" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="atencao1" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>2. O comportamento diminui quando você dá atenção (mesmo bronca)?</label>
+                    <div>
+                        <input type="radio" name="atencao2" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="atencao2" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="atencao2" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="atencao2" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>3. O comportamento acontece mais na presença de outras pessoas?</label>
+                    <div>
+                        <input type="radio" name="atencao3" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="atencao3" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="atencao3" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="atencao3" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>4. A criança te olha ou busca sua reação durante o comportamento?</label>
+                    <div>
+                        <input type="radio" name="atencao4" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="atencao4" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="atencao4" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="atencao4" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="function-score" id="scoreAtencao">Pontuação: 0/12</div>
+            </div>
+
+            <!-- FUNÇÃO FUGA -->
+            <div class="function-assessment fuga">
+                <h4>FUNÇÃO: FUGA/ESQUIVA</h4>
+                
+                <div class="rating-scale">
+                    <label>1. O comportamento acontece durante atividades dirigidas/demandas?</label>
+                    <div>
+                        <input type="radio" name="fuga1" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="fuga1" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="fuga1" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="fuga1" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>2. O comportamento para quando você remove a atividade?</label>
+                    <div>
+                        <input type="radio" name="fuga2" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="fuga2" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="fuga2" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="fuga2" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>3. Ocorre mais em contextos de aprendizado/terapia?</label>
+                    <div>
+                        <input type="radio" name="fuga3" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="fuga3" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="fuga3" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="fuga3" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>4. A criança se acalma quando a demanda é retirada?</label>
+                    <div>
+                        <input type="radio" name="fuga4" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="fuga4" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="fuga4" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="fuga4" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="function-score" id="scoreFuga">Pontuação: 0/12</div>
+            </div>
+
+            <!-- FUNÇÃO TANGÍVEIS -->
+            <div class="function-assessment tangiveis">
+                <h4>FUNÇÃO: ACESSO A TANGÍVEIS</h4>
+                
+                <div class="rating-scale">
+                    <label>1. O comportamento ocorre quando nega acesso a algo preferido?</label>
+                    <div>
+                        <input type="radio" name="tangiveis1" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="tangiveis1" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="tangiveis1" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="tangiveis1" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>2. Para imediatamente quando obtém o item/atividade desejada?</label>
+                    <div>
+                        <input type="radio" name="tangiveis2" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="tangiveis2" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="tangiveis2" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="tangiveis2" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>3. Acontece mais próximo aos horários de atividades preferidas?</label>
+                    <div>
+                        <input type="radio" name="tangiveis3" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="tangiveis3" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="tangiveis3" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="tangiveis3" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>4. A criança aponta ou direciona-se ao item durante o comportamento?</label>
+                    <div>
+                        <input type="radio" name="tangiveis4" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="tangiveis4" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="tangiveis4" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="tangiveis4" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="function-score" id="scoreTangiveis">Pontuação: 0/12</div>
+            </div>
+
+            <!-- FUNÇÃO AUTOMÁTICO -->
+            <div class="function-assessment automatico">
+                <h4>FUNÇÃO: REFORÇO AUTOMÁTICO</h4>
+                
+                <div class="rating-scale">
+                    <label>1. O comportamento acontece mesmo quando a criança está sozinha?</label>
+                    <div>
+                        <input type="radio" name="automatico1" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="automatico1" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="automatico1" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="automatico1" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>2. Mantém-se independente das reações das pessoas?</label>
+                    <div>
+                        <input type="radio" name="automatico2" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="automatico2" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="automatico2" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="automatico2" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>3. Tem padrão repetitivo e rítmico?</label>
+                    <div>
+                        <input type="radio" name="automatico3" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="automatico3" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="automatico3" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="automatico3" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="rating-scale">
+                    <label>4. Ocorre em qualquer ambiente, sem gatilhos específicos?</label>
+                    <div>
+                        <input type="radio" name="automatico4" value="0" onchange="calcularFuncoes()"> 0
+                        <input type="radio" name="automatico4" value="1" onchange="calcularFuncoes()"> 1
+                        <input type="radio" name="automatico4" value="2" onchange="calcularFuncoes()"> 2
+                        <input type="radio" name="automatico4" value="3" onchange="calcularFuncoes()"> 3
+                    </div>
+                </div>
+                
+                <div class="function-score" id="scoreAutomatico">Pontuação: 0/12</div>
+            </div>
+
+            <div id="resultadoFuncao" class="results-section hidden">
+                <h3>Resultado da Análise Funcional</h3>
+                <div id="funcaoPredominante"></div>
+                <div id="graficoFuncoes"></div>
+            </div>
+
+            <div class="export-section">
+                <button class="btn btn-secondary" onclick="showTab('entrevista')">← Voltar</button>
+                <button class="btn" onclick="showTab('coleta')">Próximo: Coleta de Dados →</button>
+            </div>
+        </div>
+
+        <!-- ABA COLETA DE DADOS -->
+        <div id="coleta" class="content hidden">
+            <div class="section">
+                <h3>Coleta de Dados de Frequência</h3>
+                <p><strong>Instruções:</strong> Registre a frequência do comportamento-alvo durante 3 a 5 dias consecutivos para análise de linha de base.</p>
+                <div class="alert alert-warning">
+                    <strong>Importante:</strong> Registre sempre no mesmo período do dia (ex: manhã, tarde, dia todo) para maior precisão dos dados.
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Configuração da Coleta</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="periodoColeta">Período de Observação:</label>
+                        <select id="periodoColeta" onchange="mostrarPeriodoPersonalizado()">
+                            <option value="">Selecione</option>
+                            <option value="manha">Manhã (6h-12h)</option>
+                            <option value="tarde">Tarde (12h-18h)</option>
+                            <option value="noite">Noite (18h-22h)</option>
+                            <option value="dia_todo">Dia todo</option>
+                            <option value="personalizado">Período personalizado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="unidadeFrequencia">Unidade de Medida:</label>
+                        <select id="unidadeFrequencia">
+                            <option value="">Selecione</option>
+                            <option value="ocorrencias">Número de ocorrências</option>
+                            <option value="minutos">Duração em minutos</option>
+                            <option value="episodios">Número de episódios</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="periodoPersonalizado" style="display: none;">
+                    <label for="descricaoPeriodo">Descrição do Período Personalizado:</label>
+                    <input type="text" id="descricaoPeriodo" placeholder="Ex: Durante as refeições, nas atividades dirigidas, etc.">
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Registro Diário</h3>
+                <div class="function-assessment">
+                    <h4>Adicionar Registro do Dia</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dataRegistro">Data:</label>
+                            <input type="date" id="dataRegistro">
+                        </div>
+                        <div class="form-group">
+                            <label for="frequenciaRegistro">Frequência:</label>
+                            <input type="number" id="frequenciaRegistro" min="0" placeholder="Digite o valor observado">
+                        </div>
+                        <div class="form-group">
+                            <label for="observacoesDia">Observações do Dia:</label>
+                            <textarea id="observacoesDia" rows="2" placeholder="Ex: criança estava mais agitada, mudança na rotina, etc."></textarea>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="adicionarRegistro()">Adicionar Registro</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Dados Coletados</h3>
+                <div id="tabelaRegistros">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Frequência</th>
+                                <th>Observações</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpoTabelaRegistros">
+                            <tr>
+                                <td colspan="4" style="padding: 20px; text-align: center; color: #6c757d;">
+                                    Nenhum registro adicionado ainda
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="resumoEstatistico" class="recommendation-card" style="display: none;">
+                    <h4>Resumo Estatístico</h4>
+                    <div class="form-row">
+                        <div style="text-align: center;">
+                            <strong>Média:</strong> <span id="mediaFrequencia">0</span>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong>Total de Dias:</strong> <span id="totalDias">0</span>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong>Maior Valor:</strong> <span id="maiorValor">0</span>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong>Menor Valor:</strong> <span id="menorValor">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="export-section">
+                <button class="btn btn-secondary" onclick="showTab('avaliacao')">← Voltar</button>
+                <button class="btn" onclick="showTab('recomendacoes')">Próximo: Recomendações →</button>
+            </div>
+        </div>
+
+        <!-- ABA RECOMENDAÇÕES -->
+        <div id="recomendacoes" class="content hidden">
+            <div id="alertasSeguranca"></div>
+            
+            <div class="section">
+                <h3>Recomendações Baseadas na Análise Funcional</h3>
+                <div id="resumoAnalise"></div>
+            </div>
+
+            <div id="procedimentosRecomendados"></div>
+
+            <div class="section">
+                <h3>Cronograma de Implementação</h3>
+                <div id="cronogramaImplementacao"></div>
+            </div>
+
+            <div class="section">
+                <h3>Recursos Necessários</h3>
+                <div id="recursosNecessarios"></div>
+            </div>
+
+            <div class="export-section">
+                <button class="btn btn-secondary" onclick="showTab('coleta')">← Voltar</button>
+                <button class="btn" onclick="showTab('relatorio')">Ver Relatório Completo →</button>
+            </div>
+        </div>
+
+        <!-- ABA RELATÓRIO -->
+        <div id="relatorio" class="content hidden">
+            <div class="section">
+                <h3>Relatório Completo de Avaliação e Intervenção</h3>
+                <div id="relatorioCompleto"></div>
+            </div>
+
+            <div class="export-section">
+                <button class="btn btn-secondary" onclick="showTab('recomendacoes')">← Voltar</button>
+                <button class="btn" onclick="exportarPDF()">Exportar PDF</button>
+                <button class="btn btn-secondary" onclick="novaAvaliacao()">Nova Avaliação</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
